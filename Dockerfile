@@ -1,4 +1,4 @@
-FROM activ/arch-openvpn
+FROM binhex/arch-openvpn
 MAINTAINER activ
 
 # additional files
@@ -20,10 +20,17 @@ RUN chmod +x /root/*.sh /home/nobody/*.sh && \
 #################
 
 VOLUME ["/config"]
-VOLUME /data
+VOLUME ["/data"]
 
+# expose port for transmission webui
 EXPOSE 9091/tcp
 
+# expose port for privoxy
+EXPOSE 8118
+
+# expose port for transmission incoming port (used only if VPN_ENABLED=no)
+EXPOSE 51413
+EXPOSE 51413/udp
 
 # set permissions
 #################
