@@ -1,5 +1,4 @@
 FROM binhex/arch-openvpn
-MAINTAINER activ
 
 # additional files
 ##################
